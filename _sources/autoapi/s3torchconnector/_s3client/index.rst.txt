@@ -1,0 +1,58 @@
+:orphan:
+
+:py:mod:`s3torchconnector._s3client`
+====================================
+
+.. py:module:: s3torchconnector._s3client
+
+
+Package Contents
+----------------
+
+Classes
+~~~~~~~
+
+.. autoapisummary::
+
+   s3torchconnector._s3client.S3Client
+   s3torchconnector._s3client.MockS3Client
+
+
+
+
+.. py:class:: S3Client(region: str, endpoint: str = None, user_agent: s3torchconnector._user_agent.UserAgent = None)
+
+
+   .. py:property:: region
+      :type: str
+
+
+   .. py:property:: user_agent_prefix
+      :type: str
+
+
+   .. py:method:: get_object(bucket: str, key: str, *, object_info: Optional[s3torchconnectorclient._mountpoint_s3_client.ObjectInfo] = None) -> s3torchconnector.S3Reader
+
+
+   .. py:method:: put_object(bucket: str, key: str, storage_class: Optional[str] = None) -> s3torchconnector.S3Writer
+
+
+   .. py:method:: list_objects(bucket: str, prefix: str = '', delimiter: str = '', max_keys: int = 1000) -> s3torchconnectorclient._mountpoint_s3_client.ListObjectStream
+
+
+   .. py:method:: head_object(bucket: str, key: str) -> s3torchconnectorclient._mountpoint_s3_client.ObjectInfo
+
+
+
+.. py:class:: MockS3Client(region: str, bucket: str, part_size: int = 8 * 1024 * 1024, user_agent: s3torchconnector._user_agent.UserAgent = None)
+
+
+   Bases: :py:obj:`s3torchconnector._s3client.S3Client`
+
+   .. py:method:: add_object(key: str, data: bytes) -> None
+
+
+   .. py:method:: remove_object(key: str) -> None
+
+
+
